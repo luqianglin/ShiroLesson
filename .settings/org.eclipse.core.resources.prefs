@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/main/java/cn/et/food/controller/EmpController.java=UTF-8
+encoding//src/main/java/cn/et/food/controller/StudentController.java=UTF-8
+encoding//src/main/java/cn/et/food/entity/Result.java=UTF-8
+encoding//src/main/java/cn/et/food/service=UTF-8
+encoding//src/main/java/cn/et/food/service/impl/DeptServiceImpl.java=UTF-8
+encoding//src/main/java/cn/et/food/service/impl/EmpServiceImpl.java=UTF-8
+encoding//src/main/java/cn/et/food/service/impl/StudentServiceImpl.java=UTF-8
+encoding//src/main/java/cn/et/food/utils/PageTools.java=UTF-8
+encoding//src/main/resources/my.ini=UTF-8
+encoding//src/main/webapp/WEB-INF/my.ini=UTF-8
+encoding//src/main/webapp/layout.jsp=UTF-8

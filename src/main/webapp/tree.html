@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>tree.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="js/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="js/themes/icon.css">
+	<style type="text/css">
+		html{
+			width:100%;
+			height:100%;
+		}
+		body{
+			font-size:14px;
+			width:100%;
+			height:100%;
+		}
+		
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+	
+    <script type="text/javascript">
+    	//查询方法
+    	$(function(){
+    		$("#tt").tree({
+    			//onSelect node 在用户选择节点的时候触发。 
+    			onSelect:function(node){
+    				var id=node.id;
+    				$("#dg").datagrid("load",{
+    					id:id
+    				});
+    			}
+    		})
+    	})
+    	
+    	//模糊查询方法
+		function queryForm(){
+		 	var eName=$("#eId").textbox('getValue');
+		 	$('#dg').datagrid('load',{
+				//easyui所有的方法调用有规则:
+				//控件对象.控件名称('方法名','方法参数')
+				ename:eName
+			});
+		}
+    </script>
+  </head>
+  
+  <body>
+  	
+    	
+	<!-- 布局  
+		不能设置100%是设置该属性data-options="fit:true"
+	-->
+	<div class="easyui-layout" style="width:100%;height:100%"; data-options="fit:true">
+		<div data-options="region:'west',split:true" title="部门信息" style="width:18%;">
+			<!-- 树状的页面 -->
+    		<ul id="tt" class="easyui-tree" data-options="url:'queryDept'"></ul>  
+		</div>
+		<div data-options="region:'center',title:'员工信息',iconCls:'icon-ok'" stytle="padding:1px:margin:1px">
+			员工姓名： <input id="eId" class="easyui-textbox" type="text" name="ename" data-options="required:true"></input>
+	   			<a href="javascript:void(0)" class="easyui-linkbutton" style="width:  50px" onclick="queryForm()">查询</a>
+			<table id="dg" class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px"
+		     	data-options="singleSelect:false,collapsible:false,url:'queryEmp',method:'get',pagination:true,rownumbers:true">
+				<thead>
+					<tr>
+					    <!-- {"sid":1,"sname":"张三2号","gid":1,"sex":1,"age":12,"address":"深圳福田"} -->
+						<th data-options="field:'id',width:80">员工编号</th>
+						<th data-options="field:'ename',width:100">员工姓名</th>
+						<th data-options="field:'sal',width:80,">员工薪水</th>
+						<th data-options="field:'deptid',width:80,">部门编号</th>
+					</tr>
+				</thead>
+			</table>
+			
+		</div>
+	</div>
+  </body>
+</html>
